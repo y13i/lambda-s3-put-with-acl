@@ -1,0 +1,13 @@
+{
+  "name": "lambda-s3-put-with-acl",
+  "nameTemplate": "{{.Function.Name}}",
+  "description": "Lambda function that puts object with specified ACL.",
+  "role": "arn:aws:iam::<REPLACE WITH YOUR AWS ACCOUNT NUMBER>:role/<REPLACE WITH YOUR ROLE NAME>",
+  "runtime": "nodejs4.3",
+  "handler": "lib.default",
+  "timeout": 300,
+  "hooks": {
+    "build": "cp ../../package.json . && npm install --production && babel src -d lib",
+    "clean": "rm -rf lib package.json"
+  }
+}
